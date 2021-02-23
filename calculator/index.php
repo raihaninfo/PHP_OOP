@@ -1,44 +1,54 @@
-<?php include 'header.php'; ?>
+<?php include 'header.php'; 
+    include 'function.php';
+?>
 <section class="main-body bg-dark text-white">
     <!-- html code hear -->
 
     <table>
         <form action="<?php $_SERVER["PHP_SELF"]; ?>" method="post">
             <tr>
-                <td>Coder : </td>
+                <td>Number One : </td>
                 <td>
-                    PHP
-                    <input type="checkbox" name="coder[]" value="PHP">
-                    JAVA
-                    <input type="checkbox" name="coder[]" value="JAVA">
-                    Python
-                    <input type="checkbox" name="coder[]" value="Python">
+                    <input type="number" name="num1" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>Number Two : </td>
+                <td>
+                    <input type="number" name="num2" id="">
                 </td>
             </tr>
 
             <tr>
                 <td></td>
                 <td>
-                    <input type="submit" name="submit" value="Sunmit" id="">
+                    <input type="submit" name="calculate" value="Calculate" id="">
                 </td>
             </tr>
         </form>
     </table>
     <!-- php code hear -->
     <?php
-
-    if (empty($_POST['coder'])) {
-        echo "Please select the checkbox";
-    } else {
-        if (isset($_POST['submit'])) {
-            $cdr = $_POST['coder'];
-            echo "You have a selected : ";
-            foreach ($cdr as $coder => $value) {
-                echo $value . ", ";
-            }
+        if(isset($_POST['calculate'])){
+            $numOne = $_POST['num1'];
+            $numTwo = $_POST['num2'];
         }
-    }
+        if(empty($numTwo) or empty($numTwo)){
+            echo "Field must Non be empty<br/>";
+        }else{
+            echo "First Number is $numOne and last Number is $numTwo.<br/>";
+            $cal = new calculation;
+            $cal->sum($numOne, $numTwo);
+            $cal->sub($numOne, $numTwo);
+            $cal->mul($numOne, $numTwo);
+            $cal->div($numOne, $numTwo);
+        }
     ?>
+
+
+
+
+
 
 </section>
 <?php include 'footer.php'; ?>
