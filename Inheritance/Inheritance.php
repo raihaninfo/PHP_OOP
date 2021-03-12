@@ -34,7 +34,6 @@
         }
     }
 
-
     $e1 =new manager ("Raihan", 25, 10000);
     $e2 =new employee("Hasan", 25, 7000);
     $e1->info();
