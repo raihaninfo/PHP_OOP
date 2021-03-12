@@ -14,12 +14,3 @@ class calculation{
         echo "divition = ".($a - $b)."<br/>";
     }
 }
-
-
-
-
-
-
-
-
-?>
